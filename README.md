@@ -3,7 +3,7 @@
 ---
 
 - 什么是JDBC
-	- JDBC全称Java Data Connectivity(java数据库连接)，可以为多种数据库提供统一的访问，体现了Java“编译一次，到处运行"**精神!**
+	- JDBC全称Java DataBase Connectivity(java数据库连接)，可以为多种数据库提供统一的访问，体现了Java“编译一次，到处运行"**精神!**
 	
 ---
 
