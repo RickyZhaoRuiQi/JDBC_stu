@@ -3,9 +3,7 @@ package com.ixaut.action;
 import com.ixaut.dao.GoddessDao;
 import com.ixaut.model.Goddess;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class GoddessAction
 {
@@ -65,6 +63,20 @@ public class GoddessAction
         for(Goddess rs : result)
         {
             System.out.println(rs);
+        }
+        */
+
+        /*更加通用的查询
+        List<Map<String,Object>> params = new ArrayList<Map<String,Object>>();
+        Map<String,Object> param = new HashMap<>();
+        param.put("name","user_name");
+        param.put("rela","like");
+        param.put("value","'%王%'");
+        params.add(param);
+        List<Goddess> result = g.query(params);
+        for (int i = 0; i < result.size(); i++)
+        {
+            System.out.println(result.get(i));
         }
         */
     }
