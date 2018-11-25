@@ -3,10 +3,41 @@ package com.ixaut.action;
 import com.ixaut.dao.GoddessDao;
 import com.ixaut.model.Goddess;
 
+import java.sql.SQLException;
 import java.util.*;
 
 public class GoddessAction
 {
+    public void add(Goddess g) throws SQLException {
+        GoddessDao dao = new GoddessDao();
+        dao.addGoddess(g);
+    }
+
+    public Goddess get(Integer id) throws SQLException {
+        GoddessDao dao = new GoddessDao();
+        return dao.get(id);
+    }
+
+    public void edit(Goddess g) throws SQLException {
+        GoddessDao dao = new GoddessDao();
+        dao.updateGoddess(g);
+    }
+
+    public void del(Integer id) throws SQLException {
+        GoddessDao dao = new GoddessDao();
+        dao.delGoddess(id);
+    }
+
+    public List<Goddess> query() throws Exception {
+        GoddessDao dao = new GoddessDao();
+        return dao.query();
+    }
+
+    public List<Goddess> query(List<Map<String,Object>> params) throws Exception {
+        GoddessDao dao = new GoddessDao();
+        return dao.query(params);
+    }
+
     public static void main(String[] args) throws Exception {
         GoddessDao g = new GoddessDao();
 
