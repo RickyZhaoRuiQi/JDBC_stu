@@ -68,6 +68,29 @@ public class GoddessDao
         ptmp.execute();
     }
 
+    public List<Goddess> query() throws Exception
+    {
+        List<Goddess> result=new ArrayList<Goddess>();
+
+        Connection conn=DBUtil.getConnection();
+        StringBuilder sb = new StringBuilder();
+        sb.append("select id,user_name,age from imooc_goddess  ");
+
+        PreparedStatement ptmt = conn.prepareStatement(sb.toString());
+
+        ResultSet rs=ptmt.executeQuery();
+
+        Goddess g = null;
+        while(rs.next()){
+            g=new Goddess();
+            g.setId(rs.getInt("id"));
+            g.setUser_name(rs.getString("user_name"));
+            g.setAge(rs.getInt("age"));
+            result.add(g);
+        }
+        return result;
+    }
+
     public List<Goddess> query(String name) throws Exception
     {
         List<Goddess> result = new ArrayList<Goddess>();
