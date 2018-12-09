@@ -9,11 +9,20 @@ public class JDBCTestProduce {
 
         //dao.select_nofileter();
 
+        /*
         String sp_name = "";
         List<Goddess> res = null;
         res = select_filter(sp_name);
         showResult(res);
+        */
 
+        System.out.println(select_count());
+
+    }
+
+    public static Integer select_count() throws SQLException {
+        ProduceDao dao = new ProduceDao();
+        return dao.select_count();
     }
 
     public static List<Goddess> select_filter(String sp_name) throws SQLException {

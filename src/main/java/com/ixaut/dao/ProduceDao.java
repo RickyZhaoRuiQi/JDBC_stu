@@ -3,14 +3,25 @@ package com.ixaut.dao;
 import com.ixaut.db.DBUtil;
 import com.ixaut.model.Goddess;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProduceDao {
+
+    public static Integer select_count() throws SQLException {
+        Integer count = 0;
+        //1.获得连接
+        Connection conn = DBUtil.getConnection();
+        //2.获得CallableStatement
+        CallableStatement cs = conn.prepareCall("call sp_select_count(?)");
+        cs.registerOutParameter(1, Types.INTEGER);
+        //3.执行存储过程
+        cs.execute();
+        //4.处理返回结果：结果集，出参
+        count = cs.getInt(1);
+        return count;
+    }
 
     public static List<Goddess> select_filter(String sp_name) throws SQLException {
 
