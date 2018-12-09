@@ -39,6 +39,7 @@ public class test
         action.del(5);
         */
 
+        /*
         List<Map<String,Object>> params = new ArrayList<Map<String, Object>>();
         Map<String,Object> map = new HashMap<String, Object>();
         map.put("name","user_name");
@@ -53,6 +54,6 @@ public class test
             System.out.println(result.get(i).getId()+":"
             +result.get(i).getUser_name());
         }
-
+        */
     }
 }
