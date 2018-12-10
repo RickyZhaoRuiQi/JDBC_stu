@@ -4,7 +4,10 @@ import java.util.Date;
 
 public class Transinfo {
     private Integer id;
-    private String account;
+    private Integer sourceId;
+    private String sourceAccount;
+    private Integer destinationId;
+    private String destinationAccount;
     private Double amount;
     private Date createAt;
 
@@ -16,12 +19,36 @@ public class Transinfo {
         this.id = id;
     }
 
-    public String getAccount() {
-        return account;
+    public Integer getSourceId() {
+        return sourceId;
     }
 
-    public void setAccount(String account) {
-        this.account = account;
+    public void setSourceId(Integer sourceId) {
+        this.sourceId = sourceId;
+    }
+
+    public String getSourceAccount() {
+        return sourceAccount;
+    }
+
+    public void setSourceAccount(String sourceAccount) {
+        this.sourceAccount = sourceAccount;
+    }
+
+    public Integer getDestinationId() {
+        return destinationId;
+    }
+
+    public void setDestinationId(Integer destinationId) {
+        this.destinationId = destinationId;
+    }
+
+    public String getDestinationAccount() {
+        return destinationAccount;
+    }
+
+    public void setDestinationAccount(String destinationAccount) {
+        this.destinationAccount = destinationAccount;
     }
 
     public Double getAmount() {

@@ -4,10 +4,7 @@ import java.util.Date;
 
 public class Account {
     private Integer id;
-    private Integer sourceId;
-    private String sourceAccount;
-    private Integer destinationId;
-    private String destinationAccount;
+    private String account;
     private Double amount;
     private Date createAt;
 
@@ -19,36 +16,12 @@ public class Account {
         this.id = id;
     }
 
-    public Integer getSourceId() {
-        return sourceId;
+    public String getAccount() {
+        return account;
     }
 
-    public void setSourceId(Integer sourceId) {
-        this.sourceId = sourceId;
-    }
-
-    public String getSourceAccount() {
-        return sourceAccount;
-    }
-
-    public void setSourceAccount(String sourceAccount) {
-        this.sourceAccount = sourceAccount;
-    }
-
-    public Integer getDestinationId() {
-        return destinationId;
-    }
-
-    public void setDestinationId(Integer destinationId) {
-        this.destinationId = destinationId;
-    }
-
-    public String getDestinationAccount() {
-        return destinationAccount;
-    }
-
-    public void setDestinationAccount(String destinationAccount) {
-        this.destinationAccount = destinationAccount;
+    public void setAccount(String account) {
+        this.account = account;
     }
 
     public Double getAmount() {
