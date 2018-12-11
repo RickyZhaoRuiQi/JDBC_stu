@@ -6,6 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.ixaut.db.C3P0Util;
+import com.ixaut.db.DBCPUtil;
 import com.ixaut.db.DBUtil;
 import com.ixaut.model.Account;
 
@@ -25,7 +28,37 @@ public class AccountDao {
         return account;
     }
 
-    public void insert(Account account) throws SQLException{
+    public Account getByDbcp(Integer index) throws SQLException{
+        DBCPUtil db = new DBCPUtil();
+        Connection conn = db.getConn();
+        PreparedStatement st = conn.prepareStatement("select * from account_info where id = ?");
+        st.setInt(1,index);
+        ResultSet rs = st.executeQuery();
+        rs.next();
+        Account account = new Account();
+        account.setId(rs.getInt("id"));
+        account.setAccount(rs.getString("account"));
+        account.setAmount(rs.getDouble("amount"));
+        account.setCreateAt(rs.getDate("create_at"));
+        return account;
+    }
+
+    public Account getByC3p0(Integer index) throws SQLException{
+        Connection conn = C3P0Util.getConnection();
+        PreparedStatement st = conn.prepareStatement("select * from account_info where id = ?");
+        st.setInt(1,index);
+        ResultSet rs = st.executeQuery();
+        rs.next();
+        Account account = new Account();
+        account.setId(rs.getInt("id"));
+        account.setAccount(rs.getString("account"));
+        account.setAmount(rs.getDouble("amount"));
+        account.setCreateAt(rs.getDate("create_at"));
+        return account;
+    }
+
+
+        public void insert(Account account) throws SQLException{
         Connection conn = DBUtil.getConnection();
         PreparedStatement st = conn.prepareStatement("insert into account_info(account,amount) values (?,?)");
         st.setString(1, account.getAccount());
